@@ -1,6 +1,4 @@
 require 'rails_helper'
-require 'validates_email_format_of/rspec_matcher'
-require 'validates_cpf/require_a_valid_cpf_matcher'
 
 RSpec.describe Municipe, type: :model do
   describe '#name' do
