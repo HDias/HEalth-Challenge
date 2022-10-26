@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'validates_email_format_of/rspec_matcher'
 
 RSpec.describe Municipe, type: :model do
   describe '#name' do
@@ -20,6 +21,8 @@ RSpec.describe Municipe, type: :model do
     specify { is_expected.to have_db_column(:email).of_type(:string).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:email) }
     specify { is_expected.to validate_confirmation_of(:email) }
+
+    specify { is_expected.to validate_email_format_of(:email).with_message('email inválido') }
   end
 
   describe '#birth_date' do

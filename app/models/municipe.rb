@@ -6,5 +6,7 @@ class Municipe < ApplicationRecord
   validates :birth_date,  presence: true
   validates :phone,       presence: true
 
+  validates :email, email_format: { message: 'email inválido' }
+
   validates :email, confirmation: true
 end

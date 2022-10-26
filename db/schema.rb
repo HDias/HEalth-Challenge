@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_26_022833) do
   create_table "municipes", force: :cascade do |t|
-    t.string "name"
-    t.string "cpf"
-    t.string "cns"
-    t.string "email"
-    t.date "birth_date"
-    t.string "phone"
+    t.string "name", null: false
+    t.string "cpf", null: false
+    t.string "cns", null: false
+    t.string "email", null: false
+    t.date "birth_date", null: false
+    t.string "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
