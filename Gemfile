@@ -53,6 +53,8 @@ gem "bootsnap", require: false
 
 gem 'simple_form'
 
+gem 'validates_email_format_of'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
