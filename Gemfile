@@ -60,6 +60,8 @@ group :development, :test do
   gem 'faker'
 
   gem 'rspec-rails', '~> 6.0.0'
+
+  gem 'simplecov', require: false
 end
 
 group :development do
