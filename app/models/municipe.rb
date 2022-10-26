@@ -1,6 +1,6 @@
 class Municipe < ApplicationRecord
   validates :name,        presence: true
-  validates :cpf,         presence: true
+  validates :cpf,         presence: true, cpf: true
   validates :cns,         presence: true
   validates :email,       presence: true
   validates :birth_date,  presence: true

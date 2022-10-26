@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'validates_email_format_of/rspec_matcher'
+require 'validates_cpf/require_a_valid_cpf_matcher'
 
 RSpec.describe Municipe, type: :model do
   describe '#name' do
@@ -10,6 +11,7 @@ RSpec.describe Municipe, type: :model do
   describe '#cpf' do
     specify { is_expected.to have_db_column(:cpf).of_type(:string).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:cpf) }
+    specify { is_expected.to require_a_valid_cpf(:cpf) }
   end
 
   describe '#cns' do
