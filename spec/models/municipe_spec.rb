@@ -91,6 +91,33 @@ RSpec.describe Municipe, type: :model do
   describe '#birth_date' do
     specify { is_expected.to have_db_column(:birth_date).of_type(:date).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:birth_date) }
+
+    context 'when birth date is greater than the current day' do
+      it 'record is not valid and adds greater_than_or_equal_to error to birth_date attribute' do
+        municipe = build(:municipe, birth_date: Date.tomorrow)
+
+        expect(municipe.valid?).to be_falsey
+        expect(municipe.errors[:birth_date]).not_to be_empty
+      end
+    end
+
+    context 'when birth date is equals to current day' do
+      it 'record is valid and not adds greater_than_or_equal_to error to birth_date attribute' do
+        municipe = build(:municipe, birth_date: Date.today)
+
+        expect(municipe.valid?).to be_truthy
+        expect(municipe.errors[:birth_date]).to be_empty
+      end
+    end
+
+    context 'when birth date is less than the current day' do
+      it 'record is valid and not adds greater_than_or_equal_to error to birth_date attribute' do
+        municipe = build(:municipe, birth_date: Date.yesterday)
+
+        expect(municipe.valid?).to be_truthy
+        expect(municipe.errors[:birth_date]).to be_empty
+      end
+    end
   end
 
   describe '#phone' do
