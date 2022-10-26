@@ -53,6 +53,8 @@ gem "bootsnap", require: false
 
 gem 'simple_form'
 
+# Validators
+gem 'validates_cpf'
 gem 'validates_email_format_of'
 
 group :development, :test do
