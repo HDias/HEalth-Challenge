@@ -226,6 +226,9 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.2.0)
       activesupport (>= 5.2.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -306,6 +309,7 @@ DEPENDENCIES
   rubocop (~> 1.32)
   selenium-webdriver
   shoulda-matchers (~> 5.0)
+  simple_form
   simplecov
   solargraph
   sprockets-rails
