@@ -1,6 +1,6 @@
 class Cns
   def initialize(value:)
-    @value = value.gsub(/[^\d]/, '')
+    @value = value.to_s.gsub(/[^\d]/, '')
   end
 
   def valid?
