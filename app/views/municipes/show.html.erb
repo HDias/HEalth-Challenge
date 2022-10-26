@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @municipe %>
+
+<div>
+  <%= link_to "Edit this municipe", edit_municipe_path(@municipe) %> |
+  <%= link_to "Back to municipes", municipes_path %>
+
+  <%= button_to "Destroy this municipe", @municipe, method: :delete %>
+</div>
