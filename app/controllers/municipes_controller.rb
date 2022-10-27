@@ -1,5 +1,5 @@
 class MunicipesController < ApplicationController
-  before_action :set_municipe, only: %i[show edit update destroy]
+  before_action :set_municipe, only: %i[edit update]
 
   def index
     @municipes = Municipe.includes(:endereco).page params[:page]
@@ -13,8 +13,7 @@ class MunicipesController < ApplicationController
   def edit; end
 
   def create
-    creator   = CreateMunicipe.new(params: municipe_params)
-    @municipe = creator.municipe
+    creator = CreateMunicipe.new(params: municipe_params)
 
     respond_to do |format|
       if creator.submit
@@ -27,10 +26,13 @@ class MunicipesController < ApplicationController
   end
 
   def update
+    updater = UpdateMunicipe.new(params: municipe_params, municipe: @municipe)
+
     respond_to do |format|
-      if @municipe.update(municipe_params)
+      if updater.submit
         format.html { redirect_to municipe_url(@municipe), notice: 'Munícipe atualizado com sucesso.' }
       else
+        @municipe = updater.municipe
         format.html { render :edit, status: :unprocessable_entity }
       end
     end

@@ -7,9 +7,13 @@ class UpdateMunicipe
   end
 
   def submit
-    send_mail if @municipe.update(@params)
+    if @municipe.update(@params)
+      send_mail
 
-    true
+      return true
+    end
+
+    false
   end
 
   def send_mail(mailer: MunicipeMailer)
