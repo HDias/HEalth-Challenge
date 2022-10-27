@@ -22,16 +22,5 @@ class Municipe < ApplicationRecord
 
   validates :birth_date, comparison: { less_than_or_equal_to: Date.today }
 
-  before_create :notify_registered_municipe
-  before_update :notify_updated_municipe
-
-  private
-
-  def notify_registered_municipe
-    MunicipeMailer.registered(self).deliver_later unless id.nil?
-  end
-
-  def notify_updated_municipe
-    MunicipeMailer.updated(self).deliver_later
-  end
+  paginates_per 10
 end
