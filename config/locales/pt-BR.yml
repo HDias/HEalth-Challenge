@@ -237,3 +237,10 @@ pt-BR:
       short_pt_BR: "%d/%m/%Y %H:%M"
       default_pt_BR: "%d/%m/%Y %H:%M:%S %z"
     pm: ''
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Pŕoximo &rsaquo;"
+      truncate: "&hellip;"
