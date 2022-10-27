@@ -21,23 +21,57 @@
       </div>
       <div class="col-md-9">
         <%= f.input :name %>
-        <%= f.input :cpf %>
-        <%= f.input :cns %>
-        <%= f.input :email %>
-        <%= f.input :email_confirmation %>
-        <%= f.input :birth_date, html5: true, input_html: { max: Date.today } %>
-        <%= f.input :phone %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :cpf %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :cns %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :email %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :email_confirmation %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :birth_date, html5: true, input_html: { max: Date.today } %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :phone %>
+          </div>
+        </div>
 
         <hr />
         <h5>Endereço</h5>
         <%= f.simple_fields_for :endereco do |endereco_form| %>
-          <%= endereco_form.input :cep %>
-          <%= endereco_form.input :logradouro %>
+
+        <div class="row">
+          <div class="col-md-3">
+            <%= endereco_form.input :cep %>
+          </div>
+          <div class="col-md-9">
+            <%= endereco_form.input :logradouro %>
+          </div>
+        </div>
           <%= endereco_form.input :complemento %>
           <%= endereco_form.input :bairro %>
-          <%= endereco_form.input :cidade %>
-          <%= endereco_form.input :uf %>
-          <%= endereco_form.input :ibge_code %>
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= endereco_form.input :cidade %>
+          </div>
+          <div class="col-md-3">
+            <%= endereco_form.input :uf %>
+          </div>
+          <div class="col-md-3">
+            <%= endereco_form.input :ibge_code %>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
