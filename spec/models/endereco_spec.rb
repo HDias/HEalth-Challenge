@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Endereco, type: :model do
+  context 'associations' do
+    describe '#municipe' do
+      specify { is_expected.to belong_to(:municipe).inverse_of(:endereco) }
+    end
+  end
+
   describe '#cep' do
     specify { is_expected.to have_db_column(:cep).of_type(:string).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:cep) }

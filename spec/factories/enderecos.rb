@@ -7,5 +7,7 @@ FactoryBot.define do
     cidade { Faker::Address.city  }
     uf { Faker::Address.state_abbr }
     ibge_code { Faker::Number.number(digits: 10).to_s }
+
+    municipe
   end
 end

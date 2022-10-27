@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@municipe) do |f| %>
+<%= simple_form_for(@municipe, validate: true) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -24,8 +24,21 @@
         <%= f.input :cpf %>
         <%= f.input :cns %>
         <%= f.input :email %>
+        <%= f.input :email_confirmation %>
         <%= f.input :birth_date, html5: true, input_html: { max: Date.today } %>
         <%= f.input :phone %>
+
+        <hr />
+        <h5>Endereço</h5>
+        <%= f.simple_fields_for :endereco do |endereco_form| %>
+          <%= endereco_form.input :cep %>
+          <%= endereco_form.input :logradouro %>
+          <%= endereco_form.input :complemento %>
+          <%= endereco_form.input :bairro %>
+          <%= endereco_form.input :cidade %>
+          <%= endereco_form.input :uf %>
+          <%= endereco_form.input :ibge_code %>
+        <% end %>
       </div>
     </div>
   </div>

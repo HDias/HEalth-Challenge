@@ -7,6 +7,7 @@ class MunicipesController < ApplicationController
 
   def new
     @municipe = Municipe.new
+    @municipe.build_endereco
   end
 
   def edit; end
@@ -40,6 +41,19 @@ class MunicipesController < ApplicationController
   end
 
   def municipe_params
-    params.require(:municipe).permit(:name, :cpf, :cns, :email, :birth_date, :phone,:avatar)
+    params.require(:municipe)
+          .permit(
+            :name,
+            :cpf,
+            :cns,
+            :email,
+            :email_confirmation,
+            :birth_date,
+            :phone,
+            :avatar,
+            endereco_attributes: %i[
+              id cep logradouro complemento bairro cidade uf ibge_code
+            ]
+          )
   end
 end

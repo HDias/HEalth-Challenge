@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Municipe, type: :model do
+  context 'associations' do
+    specify { is_expected.to have_one_attached(:avatar) }
+    specify { is_expected.to have_one(:endereco).inverse_of(:municipe) }
+  end
+
   describe '#name' do
     specify { is_expected.to have_db_column(:name).of_type(:string).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:name) }
