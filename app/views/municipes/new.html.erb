@@ -1,9 +1,8 @@
-<h1>New municipe</h1>
-
-<%= render "form", municipe: @municipe %>
-
-<br>
-
-<div>
-  <%= link_to '<i class="bi bi-arrow-left"></i>'.html_safe, municipes_path, title: 'voltar' %>
+<div class="card shadow-sm">
+  <div class="card-header bg-transparent border-0">
+    Novo Munícipe
+  </div>
+  <div class="card-body">
+    <%= render "form", municipe: @municipe %>
+  </div>
 </div>

@@ -16,7 +16,7 @@ class MunicipesController < ApplicationController
 
     respond_to do |format|
       if @municipe.save
-        format.html { redirect_to municipe_url(@municipe), notice: 'Munícipe criado com sucesso' }
+        format.html { redirect_to municipes_url, notice: 'Munícipe criado com sucesso' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

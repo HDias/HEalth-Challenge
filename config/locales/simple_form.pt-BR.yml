@@ -1,0 +1,17 @@
+pt-BR:
+  simple_form:
+    "yes": 'Sim'
+    "no": 'Não'
+    required:
+      text: 'obrigatório'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: '<i class="fas fa-exclamation-circle"></i> Por favor reveja os campos abaixo:'
+  helpers:
+    submit:
+      municipe:
+        create: "Criar Munícipe"
+        update: "Atualizar Munícipe"

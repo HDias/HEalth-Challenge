@@ -30,7 +30,8 @@
     </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions d-flex justify-content-between mt-3">
+    <%= link_to '<i class="bi bi-arrow-left"></i>'.html_safe, municipes_path, title: 'voltar', class: 'btn btn-outline-primary rounded-pill' %>
+    <%= f.button :submit, class: 'btn btn-outline-primary rounded-pill' %>
   </div>
 <% end %>
