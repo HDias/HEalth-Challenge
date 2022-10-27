@@ -8,6 +8,6 @@ FactoryBot.define do
     uf { Faker::Address.state_abbr }
     ibge_code { Faker::Number.number(digits: 10).to_s }
 
-    municipe
+    municipe { association :municipe, endereco: instance }
   end
 end

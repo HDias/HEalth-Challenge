@@ -6,7 +6,7 @@ class Municipe < ApplicationRecord
     attachable.variant :thumb_80, resize_to_limit: [80, 80]
   end
 
-  has_one :endereco, inverse_of: :municipe
+  has_one :endereco, inverse_of: :municipe, required: true
   accepts_nested_attributes_for :endereco
 
   validates :status, inclusion: { in: statuses.keys }

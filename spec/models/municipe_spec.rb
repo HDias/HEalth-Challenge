@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Municipe, type: :model do
   context 'associations' do
     specify { is_expected.to have_one_attached(:avatar) }
-    specify { is_expected.to have_one(:endereco).inverse_of(:municipe) }
+    specify { is_expected.to have_one(:endereco).inverse_of(:municipe).required }
   end
 
   describe '#status' do
