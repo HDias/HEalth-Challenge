@@ -1,4 +1,6 @@
 class Municipe < ApplicationRecord
+  has_one_attached :avatar
+
   validates :name,        presence: true
   validates :cpf,         presence: true, cpf: true
   validates :cns,         presence: true, cns: true

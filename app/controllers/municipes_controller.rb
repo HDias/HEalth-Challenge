@@ -42,6 +42,6 @@ class MunicipesController < ApplicationController
   end
 
   def municipe_params
-    params.require(:municipe).permit(:name, :cpf, :cns, :email, :birth_date, :phone)
+    params.require(:municipe).permit(:name, :cpf, :cns, :email, :birth_date, :phone,:avatar)
   end
 end

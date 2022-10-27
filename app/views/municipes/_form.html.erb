@@ -4,12 +4,19 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :cpf %>
-    <%= f.input :cns %>
-    <%= f.input :email %>
-    <%= f.input :birth_date %>
-    <%= f.input :phone %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="col-md-9">
+        <%= f.input :name %>
+        <%= f.input :cpf %>
+        <%= f.input :cns %>
+        <%= f.input :email %>
+        <%= f.input :birth_date, html5: true, input_html: { max: Date.today } %>
+        <%= f.input :phone %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
