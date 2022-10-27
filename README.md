@@ -23,4 +23,7 @@ Things you may want to cover:
  - run all tests: `bin/rspec`
  - run tests in documentation format: `bin/rspec --format documentation`
 
-* ...
+
+### Local Mail service RAILS_ENV=development | mailcatcher
+
+ - Running in: `http://localhost:1080/`

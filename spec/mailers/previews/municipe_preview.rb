@@ -3,12 +3,12 @@ class MunicipePreview < ActionMailer::Preview
   def registered
     municipe = FactoryBot.create(:municipe)
 
-    MunicipeMailer.with(municipe:).registered
+    MunicipeMailer.registered(municipe)
   end
 
   def updated
     municipe = FactoryBot.create(:municipe)
 
-    MunicipeMailer.with(municipe:).registered
+    MunicipeMailer.updated(municipe)
   end
 end

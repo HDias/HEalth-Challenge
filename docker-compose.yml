@@ -5,6 +5,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    links:
+      - mailcatcher
     volumes:
       - .:/usr/src/app
     command: rails s -b 0.0.0.0
@@ -18,6 +20,12 @@ services:
       POSTGRES_PASSWORD: postgres
     ports:
       - "5442:5432"
+
+  mailcatcher:
+    image: yappabe/mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:1080"
 
 volumes:
   db_data:

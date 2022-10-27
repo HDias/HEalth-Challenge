@@ -21,4 +21,17 @@ class Municipe < ApplicationRecord
   validates :email_confirmation, presence: true, length: { maximum: 200 }
 
   validates :birth_date, comparison: { less_than_or_equal_to: Date.today }
+
+  before_create :notify_registered_municipe
+  before_update :notify_updated_municipe
+
+  private
+
+  def notify_registered_municipe
+    MunicipeMailer.registered(self).deliver_later unless id.nil?
+  end
+
+  def notify_updated_municipe
+    MunicipeMailer.updated(self).deliver_later
+  end
 end
