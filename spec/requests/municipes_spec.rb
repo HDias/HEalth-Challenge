@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe '/municipes', type: :request do
+RSpec.describe MunicipesController, type: :request do
   describe 'GET /index' do
     it 'renders a successful response' do
       get municipes_url
@@ -47,7 +47,7 @@ RSpec.describe '/municipes', type: :request do
       end
     end
 
-    context 'when not att to params endereco attributes' do
+    context 'when not add to params endereco attributes' do
       it 'does not create a new Municipe and Endereco' do
         params = attributes_for(:municipe)
 
