@@ -4,7 +4,7 @@ class AddStatusToMunicipe < ActiveRecord::Migration[7.0]
       CREATE TYPE municipe_status AS ENUM ('ativo', 'inativo');
     SQL
 
-    add_column :municipes, :status, :municipe_status
+    add_column :municipes, :status, :municipe_status, null: false
   end
 
   def down

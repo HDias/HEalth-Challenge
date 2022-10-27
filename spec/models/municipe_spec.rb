@@ -6,6 +6,18 @@ RSpec.describe Municipe, type: :model do
     specify { is_expected.to have_one(:endereco).inverse_of(:municipe) }
   end
 
+  describe '#status' do
+    specify { is_expected.to have_db_column(:status).of_type(:enum) }
+    specify do
+      is_expected.to define_enum_for(:status).with_values(
+        ativo: 'ativo',
+        inativo: 'inativo'
+      ).backed_by_column_of_type(:enum)
+    end
+    specify { is_expected.to allow_values(:ativo, :inativo).for(:status) }
+  end
+
+
   describe '#name' do
     specify { is_expected.to have_db_column(:name).of_type(:string).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:name) }
@@ -16,6 +28,7 @@ RSpec.describe Municipe, type: :model do
     specify { is_expected.to have_db_column(:cpf).of_type(:string).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:cpf) }
     specify { is_expected.to require_a_valid_cpf(:cpf) }
+    specify { is_expected.to validate_uniqueness_of(:cpf).case_insensitive }
   end
 
   describe '#cns' do

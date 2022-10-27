@@ -18,6 +18,11 @@
         <% end %>
 
         <%= f.file_field :avatar, class: 'form-control form-control-sm', id: 'formFileSm' %>
+        <hr />
+
+        <div class="d-flex flex-column align-items-start">
+          <%= f.collection_radio_buttons :status, Municipe.statuses.to_a, :first, :last %>
+        </div>
       </div>
       <div class="col-md-9">
         <%= f.input :name %>

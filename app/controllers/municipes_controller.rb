@@ -50,6 +50,7 @@ class MunicipesController < ApplicationController
             :email_confirmation,
             :birth_date,
             :phone,
+            :status,
             :avatar,
             endereco_attributes: %i[
               id cep logradouro complemento bairro cidade uf ibge_code

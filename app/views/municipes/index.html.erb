@@ -16,6 +16,7 @@
               <th scope="col">Nome</th>
               <th scope="col">Documentos</th>
               <th scope="col">Email</th>
+              <th scope="col">Status</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -41,6 +42,11 @@
                 </td>
                 <td><%= municipe.email %></td>
                 <td>
+                  <span class="badge <%= municipe.ativo? ? 'text-bg-success' : 'text-bg-danger' %>">
+                    <%= municipe.status.upcase %>
+                  </span>
+                </td>
+                <td>
                   <%= link_to "Editar", edit_municipe_path(municipe), title: 'Editar', class: 'btn btn-outline-primary btn-sm rounded-pill' %>
 
                   <button class="btn btn-outline-primary btn-sm rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= municipe.id %>" aria-expanded="false" aria-controls="collapseExample">
@@ -50,7 +56,7 @@
               </tr>
 
               <tr class="collapse accordion-collapse" id="collapse<%= municipe.id %>" data-bs-parent=".table">
-                <td colspan="5">
+                <td colspan="6">
                   <div class="row">
                     <div class="col-md-4">
                       <h5>Pessoal</h5>
