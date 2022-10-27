@@ -1,12 +1,14 @@
 class Endereco < ApplicationRecord
   belongs_to :municipe, inverse_of: :endereco
 
-  validates :cep, presence: true
-  validates :logradouro, presence: true
-  validates :complemento, presence: true
-  validates :bairro, presence: true
-  validates :cidade, presence: true
-  validates :uf, presence: true
+  validates :cep,         presence: true, length: { maximum: 200 }
+  validates :logradouro,  presence: true, length: { maximum: 200 }
+  validates :complemento, presence: true, length: { maximum: 200 }
+  validates :bairro,      presence: true, length: { maximum: 200 }
+  validates :cidade,      presence: true, length: { maximum: 200 }
+  validates :uf,          presence: true, length: { maximum: 200 }
+
+  validates :ibge_code, length: { maximum: 200 }
 
   def full_address
     "#{logradouro}, #{complemento}, #{bairro}, CEP: #{cep}"

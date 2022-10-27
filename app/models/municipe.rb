@@ -7,15 +7,14 @@ class Municipe < ApplicationRecord
   has_one :endereco, inverse_of: :municipe
   accepts_nested_attributes_for :endereco
 
-  validates :name,        presence: true
+  validates :name,        presence: true, length: { maximum: 200 }
   validates :cpf,         presence: true, cpf: true
   validates :cns,         presence: true, cns: true
-  validates :phone,       presence: true
+  validates :phone,       presence: true, length: { maximum: 200 }
 
-  validates :email,       presence: true, confirmation: true
+  validates :email, presence: true, confirmation: true, length: { maximum: 200 }
   validates :email, email_format: { message: 'email inválido' }
-
-  validates :email_confirmation, presence: true
+  validates :email_confirmation, presence: true, length: { maximum: 200 }
 
   validates :birth_date, comparison: { less_than_or_equal_to: Date.today }
 end
