@@ -3,67 +3,75 @@
     Munícipes
   </div>
   <div class="card-body">
-    <tr class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Nome</th>
-            <th scope="col">Documentos</th>
-            <th scope="col">Email</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @municipes.each do |municipe| %>
-          <tr>
-            <td>
-              <% if municipe.avatar.representable? %>
-                <picture>
-                  <%= image_tag municipe.avatar.variant(:thumb_40), class: 'img-fluid img-thumbnail' %>
-                </picture>
-              <% else %>
-                <picture>
-                  <%= image_tag 'avatar.png', width: '40' %>
-                </picture>
-              <% end %>
-            </td>
-            <td><%= municipe.name %></td>
-            <td>
-              <p class="m-0"><span class="badge bg-secondary">CPF:</span> <%= municipe.cpf %></p>
-              <p class="m-0"><span class="badge bg-secondary">CNS:</span> <%= municipe.cns %></p>
-            </td>
-            <td><%= municipe.email %></td>
-            <td>
-              <%= link_to "Editar", edit_municipe_path(municipe), title: 'Editar', class: 'btn btn-outline-primary btn-sm rounded-pill' %>
+    <% if @municipes.empty? %>
+      <div class="d-grid">
+        <%= link_to "Nenhum munícipe cadastrado, Clique para cadastrar o primeiro", new_municipe_path, title: 'Novo Munícipe', class: 'btn btn-outline-primary btn-sm rounded-pill' %>
+      </div>
+    <% else %>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nome</th>
+              <th scope="col">Documentos</th>
+              <th scope="col">Email</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
 
-              <button class="btn btn-outline-primary btn-sm rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= municipe.id %>" aria-expanded="false" aria-controls="collapseExample">
-                Detalhes
-              </button>
-            </td>
-          </tr>
+          <tbody>
+            <% @municipes.each do |municipe| %>
+              <tr>
+                <td>
+                  <% if municipe.avatar.representable? %>
+                    <picture>
+                      <%= image_tag municipe.avatar.variant(:thumb_40), class: 'img-fluid img-thumbnail' %>
+                    </picture>
+                  <% else %>
+                    <picture>
+                      <%= image_tag 'avatar.png', width: '40' %>
+                    </picture>
+                  <% end %>
+                </td>
+                <td><%= municipe.name %></td>
+                <td>
+                  <p class="m-0"><span class="badge bg-secondary">CPF:</span> <%= municipe.cpf %></p>
+                  <p class="m-0"><span class="badge bg-secondary">CNS:</span> <%= municipe.cns %></p>
+                </td>
+                <td><%= municipe.email %></td>
+                <td>
+                  <%= link_to "Editar", edit_municipe_path(municipe), title: 'Editar', class: 'btn btn-outline-primary btn-sm rounded-pill' %>
 
-          <tr class="collapse accordion-collapse" id="collapse<%= municipe.id %>" data-bs-parent=".table">
-            <td colspan="5">
-              <div class="row">
-                <div class="col-md-4">
-                  <h5>Pessoal</h5>
-                  <small><strong>Data de Nascimento:</strong> <br /> <%= municipe.email %></small>
-                  <br>
-                  <small><strong>Telefone:</strong> <br /> <%= municipe.phone %></small>
-                </div>
-                <div class="col-md-8">
-                  <h5>Residência</h5>
+                  <button class="btn btn-outline-primary btn-sm rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= municipe.id %>" aria-expanded="false" aria-controls="collapseExample">
+                    Detalhes
+                  </button>
+                </td>
+              </tr>
 
-                  <small><strong>Endereço:</strong> <%= municipe.endereco&.full_address %></small> <br/>
-                  <small><strong>Municipio:</strong> <%= municipe.endereco&.cidade %> - <%= municipe.endereco&.uf %></small>
-                </div>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+              <tr class="collapse accordion-collapse" id="collapse<%= municipe.id %>" data-bs-parent=".table">
+                <td colspan="5">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h5>Pessoal</h5>
+                      <small><strong>Data de Nascimento:</strong> <br /> <%= municipe.email %></small>
+                      <br>
+                      <small><strong>Telefone:</strong> <br /> <%= municipe.phone %></small>
+                    </div>
+                    <div class="col-md-8">
+                      <h5>Residência</h5>
+
+                      <small><strong>Endereço:</strong> <%= municipe.endereco&.full_address %></small> <br/>
+                      <small><strong>Municipio:</strong> <%= municipe.endereco&.cidade %> - <%= municipe.endereco&.uf %></small>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
   </div>
 </div>
 
