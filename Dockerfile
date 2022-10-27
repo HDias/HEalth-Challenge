@@ -18,5 +18,7 @@ COPY . .
 RUN bundle install
 
 RUN gem install foreman
+RUN gem install mailcatcher
+
 
 EXPOSE 3000
