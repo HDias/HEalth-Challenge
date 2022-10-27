@@ -20,11 +20,11 @@
             <td>
               <% if municipe.avatar.representable? %>
                 <picture>
-                  <%= image_tag @municipe.avatar.variant(:thumb_40), class: 'img-fluid img-thumbnail' %>
+                  <%= image_tag municipe.avatar.variant(:thumb_40), class: 'img-fluid img-thumbnail' %>
                 </picture>
               <% else %>
                 <picture>
-                  <%= image_tag 'avatar.png', width: '80' %>
+                  <%= image_tag 'avatar.png', width: '40' %>
                 </picture>
               <% end %>
             </td>

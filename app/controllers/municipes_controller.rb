@@ -2,7 +2,7 @@ class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[show edit update destroy]
 
   def index
-    @municipes = Municipe.all
+    @municipes = Municipe.all.includes(:endereco)
   end
 
   def new
