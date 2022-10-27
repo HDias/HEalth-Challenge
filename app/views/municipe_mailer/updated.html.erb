@@ -1,0 +1,9 @@
+<h1 class="class="fs-1"">Olá, <%= @municipe.name %></h1>
+
+<p>Seu perfil foi atualizado no Sistema de registro de munícipes</p>
+
+<p>Clique no link abaixo para vizualizar suas informações</p>
+
+<p><%= link_to 'Visualizar seu perfil', edit_municipe_url(@municipe.id), class: "button" %></p>
+
+
