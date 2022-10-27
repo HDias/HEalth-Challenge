@@ -1,0 +1,15 @@
+class CreateEnderecos < ActiveRecord::Migration[7.0]
+  def change
+    create_table :enderecos do |t|
+      t.string :cep,         null: false
+      t.string :logradouro,  null: false
+      t.string :complemento, null: false
+      t.string :bairro,      null: false
+      t.string :cidade,      null: false
+      t.string :uf,          null: false
+      t.string :ibge_code,   null: true
+
+      t.timestamps
+    end
+  end
+end
