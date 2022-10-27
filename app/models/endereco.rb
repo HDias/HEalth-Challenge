@@ -7,4 +7,8 @@ class Endereco < ApplicationRecord
   validates :bairro, presence: true
   validates :cidade, presence: true
   validates :uf, presence: true
+
+  def full_address
+    "#{logradouro}, #{complemento}, #{bairro}, CEP: #{cep}"
+  end
 end
