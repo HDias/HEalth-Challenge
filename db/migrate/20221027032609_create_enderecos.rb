@@ -9,6 +9,8 @@ class CreateEnderecos < ActiveRecord::Migration[7.0]
       t.string :uf,          null: false
       t.string :ibge_code,   null: true
 
+      t.belongs_to :municipe, null: false, foreign_key: true, index: true
+
       t.timestamps
     end
   end
