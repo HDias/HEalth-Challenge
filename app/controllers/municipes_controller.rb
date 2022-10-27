@@ -5,8 +5,6 @@ class MunicipesController < ApplicationController
     @municipes = Municipe.all
   end
 
-  def show; end
-
   def new
     @municipe = Municipe.new
   end
@@ -18,7 +16,7 @@ class MunicipesController < ApplicationController
 
     respond_to do |format|
       if @municipe.save
-        format.html { redirect_to municipe_url(@municipe), notice: 'Municipe was successfully created.' }
+        format.html { redirect_to municipe_url(@municipe), notice: 'Munícipe criado com sucesso' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -28,7 +26,7 @@ class MunicipesController < ApplicationController
   def update
     respond_to do |format|
       if @municipe.update(municipe_params)
-        format.html { redirect_to municipe_url(@municipe), notice: 'Municipe was successfully updated.' }
+        format.html { redirect_to municipe_url(@municipe), notice: 'Munícipe atualizado com sucesso.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

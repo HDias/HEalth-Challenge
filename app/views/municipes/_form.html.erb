@@ -5,8 +5,19 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-3">
-        <%= f.file_field :avatar %>
+      <div class="col-md-3 d-flex flex-column align-items-center">
+
+        <% if @municipe.avatar.representable? %>
+          <picture>
+            <%= image_tag @municipe.avatar.variant(:thumb_80), class: 'img-fluid img-thumbnail' %>
+          </picture>
+        <% else %>
+          <picture>
+            <%= image_tag 'avatar.png', width: '80' %>
+          </picture>
+        <% end %>
+
+        <%= f.file_field :avatar, class: 'form-control form-control-sm', id: 'formFileSm' %>
       </div>
       <div class="col-md-9">
         <%= f.input :name %>

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :municipes, except: %i[destroy]
+  resources :municipes, except: %i[show destroy]
 end
