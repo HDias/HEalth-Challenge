@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@municipe, validate: true) do |f| %>
+<%= simple_form_for(@municipe, data: { controller: 'masks' }) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -28,10 +28,10 @@
         <%= f.input :name %>
         <div class="row">
           <div class="col-md-6">
-            <%= f.input :cpf %>
+            <%= f.input :cpf, input_html: { 'data-masks-target': 'cpf' } %>
           </div>
           <div class="col-md-6">
-            <%= f.input :cns %>
+            <%= f.input :cns, input_html: { 'data-masks-target': 'cns' } %>
           </div>
         </div>
         <div class="row">
@@ -47,7 +47,7 @@
             <%= f.input :birth_date, html5: true, input_html: { max: Date.today } %>
           </div>
           <div class="col-md-6">
-            <%= f.input :phone %>
+            <%= f.input :phone, input_html: { 'data-masks-target': 'cellPhone' } %>
           </div>
         </div>
 
@@ -57,7 +57,7 @@
 
         <div class="row">
           <div class="col-md-3">
-            <%= endereco_form.input :cep %>
+            <%= endereco_form.input :cep, input_html: { 'data-masks-target': 'cep' } %>
           </div>
           <div class="col-md-9">
             <%= endereco_form.input :logradouro %>
