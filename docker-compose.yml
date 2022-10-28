@@ -9,7 +9,12 @@ services:
       - mailcatcher
     volumes:
       - .:/usr/src/app
-    command: rails s -b 0.0.0.0
+    command:
+      - /bin/bash
+      - -c
+      - |
+          rails db:setup
+          rails s -b 0.0.0.0
 
   db:
     image: postgres:14.1
