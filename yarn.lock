@@ -232,6 +232,11 @@ glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
+imask@^6.4.3:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/imask/-/imask-6.4.3.tgz#b81b247043807995e048f559e98930c2fec8004a"
+  integrity sha512-aH2GHemGkr3cbRBfhogHMIx05eUxdHrZNlKTTLmz8VxpSopuHHJ8+85FsDlBVQqxPlDLhZuwj4lpHHWbLOdBSw==
+
 immutable@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.1.0.tgz#f795787f0db780183307b9eb2091fcac1f6fafef"
