@@ -21,8 +21,7 @@ RSpec.describe Endereco, type: :model do
   end
 
   describe '#complemento' do
-    specify { is_expected.to have_db_column(:complemento).of_type(:string).with_options(null: false) }
-    specify { is_expected.to validate_presence_of(:complemento) }
+    specify { is_expected.to have_db_column(:complemento).of_type(:string).with_options(null: true) }
     specify { is_expected.to validate_length_of(:complemento).is_at_most(200) }
   end
 

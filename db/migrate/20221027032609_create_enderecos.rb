@@ -3,7 +3,7 @@ class CreateEnderecos < ActiveRecord::Migration[7.0]
     create_table :enderecos do |t|
       t.string :cep,         null: false
       t.string :logradouro,  null: false
-      t.string :complemento, null: false
+      t.string :complemento, null: true
       t.string :bairro,      null: false
       t.string :cidade,      null: false
       t.string :uf,          null: false

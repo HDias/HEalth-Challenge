@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_132516) do
   create_table "enderecos", force: :cascade do |t|
     t.string "cep", null: false
     t.string "logradouro", null: false
-    t.string "complemento", null: false
+    t.string "complemento"
     t.string "bairro", null: false
     t.string "cidade", null: false
     t.string "uf", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_132516) do
     t.string "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.enum "status", enum_type: "municipe_status"
+    t.enum "status", null: false, enum_type: "municipe_status"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
