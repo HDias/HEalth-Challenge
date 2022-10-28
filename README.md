@@ -1,29 +1,53 @@
+### Versions
+ - Ruby 3.1.2
+ - Rails 7.0.4
+ - Postegres 14.1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Rodar em desenvolvimento
 
-Things you may want to cover:
+ - Requisitos: Ter docker e docker-compose instalados em sua máquina
+ - E rode o seguinte comando na raiz do projeto `docker-compose up --build`
+ - Abra em uma aba o seu navegador o servidor de email mailcatcher: `http://localhost:1080/` (Aqui você poderá visualizar os emails enviados pela aplicação)
+ - Acesse a aplicação em outra aba em seu navegador `http://localhost:3000/` e é só começar a usar.
 
-#### Ruby version
- - 3.1.2
+ - Se quiser rodar algum comando específico é só acessar o container, como segue?
+  - Get CONTAINER ID web: `docker ps` and access bash in container web with: `docker exec -it <CONTAINER ID> bash`
 
-#### Configuration
+### Local Mail service RAILS_ENV=development | mailcatcher
 
- - To run in dev env install docker previously
- - To build containers: `docker-compose build`
- - Run app: `docker-compose up`
- - Get CONTAINER ID web: `docker ps` and access bash in container web with: `docker exec -it <CONTAINER ID> bash``
+ - Running in: `http://localhost:1080/`
 
-#### Inner container bash
-  - Create database: `bin/rails db:create db:migrate data:migrate`
-
-### Test env with rspec
+### Rodar switch de testes
 
  - Get CONTAINER ID web: `docker ps` and access bash in container web with: `docker exec -it <CONTAINER ID> bash`
  - run all tests: `bin/rspec`
  - run tests in documentation format: `bin/rspec --format documentation`
 
+### Screns
+#### Home
 
-### Local Mail service RAILS_ENV=development | mailcatcher
+ - Sem minícipes cadastrados
 
- - Running in: `http://localhost:1080/`
+![Home-Empty](docs/images/home_empty.png)
+
+#### Cadastrar munícipe
+
+![Create-Municipe](docs/images/create_municipe.png)
+
+#### Home com lista e paginação
+
+![Home-pagianted](docs/images/index-paginado.png)
+
+#### Home com detalhes do municipe
+
+![Detail-Municipe](docs/images/municipe-details.png)
+
+### Mailers
+
+#### Ao ser cadastrado
+
+![Mailer-Created](docs/images/mail-created.png)
+
+#### Ao ser atualizado
+
+![Mailer-updated](docs/images/mail-update.png)
