@@ -1,3 +1,17 @@
+
+
+<form class="d-flex w-100 mb-3" role="search">
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Pesuise por nome, email, cpf ou cns"
+    aria-label="Search"
+    value="<%= params.dig(:query) %>"
+    name="query">
+  <button class="btn btn-outline-primary rounded-pill" type="submit">Pesquisar</button>
+  <%= link_to "Limpar", municipes_path, title: 'Editar', class: 'btn btn-outline-primary rounded-pill' %>
+</form>
+
 <div class="card shadow-sm">
   <div class="card-header bg-transparent border-0">
     Munícipes

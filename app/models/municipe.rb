@@ -1,4 +1,6 @@
 class Municipe < ApplicationRecord
+  include MunicipeSearcheable
+
   enum status: { ativo: 'ativo', inativo: 'inativo' }, _default: 'ativo'
 
   has_one_attached :avatar do |attachable|

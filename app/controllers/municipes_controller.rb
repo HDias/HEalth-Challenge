@@ -2,7 +2,13 @@ class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[edit update]
 
   def index
-    @municipes = Municipe.includes(:endereco).page params[:page]
+    Municipe.__elasticsearch__.create_index!
+
+    @municipes = if filter_params.blank?
+                   Municipe.includes(:endereco).page(params[:page])
+                 else
+                   Municipe.includes(:endereco).search(filter_params).page(params[:page]).records
+                 end
   end
 
   def new
@@ -42,6 +48,10 @@ class MunicipesController < ApplicationController
 
   def set_municipe
     @municipe = Municipe.find(params[:id])
+  end
+
+  def filter_params
+    params['query'] || ''
   end
 
   def municipe_params

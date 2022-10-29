@@ -2,6 +2,7 @@
  - Ruby 3.1.2
  - Rails 7.0.4
  - Postegres 14.1
+ - ElasticSearch 6
 
 ### Rodar em desenvolvimento
 
