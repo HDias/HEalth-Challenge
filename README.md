@@ -27,7 +27,7 @@
 ### Screns
 #### Home
 
- - Sem minícipes cadastrados
+ - Sem munícipes cadastrados
 
 ![Home-Empty](docs/images/home_empty.png)
 
