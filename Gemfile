@@ -60,6 +60,8 @@ gem 'validates_email_format_of'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 
+gem 'elasticsearch-model', '~> 6.0.0'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
