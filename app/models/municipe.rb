@@ -15,7 +15,7 @@ class Municipe < ApplicationRecord
 
   validates :name,        presence: true, length: { maximum: 200 }
   validates :cpf,         presence: true, cpf: true, uniqueness: { case_sensitive: true }
-  validates :cns,         presence: true, cns: true
+  validates :cns,         presence: true, '::CnsBrazil::Cns': true
   validates :phone,       presence: true, length: { maximum: 200 }
 
   validates :email, presence: true, confirmation: true, length: { maximum: 200 }

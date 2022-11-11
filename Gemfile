@@ -62,6 +62,8 @@ gem 'bootstrap5-kaminari-views'
 
 gem 'elasticsearch-model', '~> 6.0.0'
 
+gem 'cns_brazil'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
