@@ -25,7 +25,9 @@ RSpec.describe UpdateMunicipe do
 
     context 'when try update Municipe name to nil' do
       it 'does not update Municipe name' do
-        params = attributes_for(:municipe).except(:endereco).merge(endereco_attributes: attributes_for(:endereco).except(:municipe))
+        params = attributes_for(:municipe).except(:endereco)
+                                          .merge(endereco_attributes: attributes_for(:endereco)
+                                          .except(:municipe))
         municipe = Municipe.create!(params)
 
         new_name = nil
@@ -41,7 +43,8 @@ RSpec.describe UpdateMunicipe do
       end
 
       it 'does not send mail' do
-        params = attributes_for(:municipe).except(:endereco).merge(endereco_attributes: attributes_for(:endereco).except(:municipe))
+        params = attributes_for(:municipe).except(:endereco)
+                                          .merge(endereco_attributes: attributes_for(:endereco).except(:municipe))
         municipe = Municipe.create!(params)
 
         new_name = nil
@@ -57,7 +60,9 @@ RSpec.describe UpdateMunicipe do
 
     context 'when try update Endereco cep to nil' do
       it 'does not update Endereco cep' do
-        params = attributes_for(:municipe).except(:endereco).merge(endereco_attributes: attributes_for(:endereco).except(:municipe))
+        params = attributes_for(:municipe).except(:endereco)
+                                          .merge(endereco_attributes: attributes_for(:endereco)
+                                          .except(:municipe))
         municipe = Municipe.create!(params)
 
         new_cep = nil

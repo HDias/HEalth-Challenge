@@ -17,7 +17,6 @@ RSpec.describe Municipe, type: :model do
     specify { is_expected.to allow_values(:ativo, :inativo).for(:status) }
   end
 
-
   describe '#name' do
     specify { is_expected.to have_db_column(:name).of_type(:string).with_options(null: false) }
     specify { is_expected.to validate_presence_of(:name) }

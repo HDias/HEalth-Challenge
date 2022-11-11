@@ -13,7 +13,7 @@ module MunicipeSearcheable
     end
 
     def self.search(query)
-      self.__elasticsearch__.search(query)
+      __elasticsearch__.search(query)
     end
   end
 end
